@@ -8,6 +8,10 @@ on:
         description: 'Number of lessons to be completed'
         required: false
         type: number
+      days_to_repair:
+        description: 'Number of days to repair streak (default is 30)'
+        required: false
+        default: '30'
 
 jobs:
   study:
@@ -19,3 +23,4 @@ jobs:
         env:
           DUOLINGO_JWT: ${{ secrets.DUOLINGO_JWT }}
           LESSONS: ${{ inputs.lessons }}
+          DAYS_TO_REPAIR: ${{ github.event.inputs.days_to_repair }}
